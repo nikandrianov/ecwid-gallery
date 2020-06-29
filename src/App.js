@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: {},
+      isFetching: true,
+    }
+  }
+
+  componentDidMount() {
+    fetch(`gallery-images.json`)
+      .then(resp => resp.json())
+      .then(result => this.setState({data: result, isFetching: false }))
+  }
+
+  showImg () {
+    return this.state.data.galleryImages.map( (item,index) => <div key={index}><img src={item.url} alt=""/></div>)
+  }
+
+  render() {
+    const { isFetching } = this.state;
+    if (isFetching) return <div>...Loading</div>;
+    return (
+        <div className="wrapper">
+          <div className="container">
+            <div className="upload">
+              <form action="#" className="form-upload">
+                <input className="upload__input" />
+                <button className="upload__button">Загрузить</button>
+              </form>
+            </div>
+            <div className="content">
+              <div className="content__gallery">
+                {this.showImg()}
+              </div>
+            </div>
+          </div>
+        </div>
+    )
+  }
 }
 
 export default App;
