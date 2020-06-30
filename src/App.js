@@ -27,10 +27,13 @@ class App extends Component {
         <div className="wrapper">
           <div className="container">
             <div className="upload">
-              <form action="#" className="form-upload">
-                <input className="upload__input" />
-                <button className="upload__button">Загрузить</button>
-              </form>
+              <div className="upload__content">
+                <h1>Галерея изображений</h1>
+                <form className="form-upload">
+                  <input className="upload__input" placeholder="URL-адрес картинки"/>
+                  <button className="upload__button">Загрузить</button>
+                </form>
+              </div>
             </div>
             <div className="content">
               <div className="content__gallery">

@@ -1,0 +1,113 @@
+.wrapper {
+    background-color: #333;
+    padding: 30px 0 0 0; 
+}
+
+.container {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.upload {
+    margin: 0 auto;
+    height: 200px;
+    width: 860px;
+    border: 2px solid #fff;
+}
+
+.upload__content {
+    text-align: center;
+    padding: 50px 0 0 0;
+    h1 {
+        font-size: 34px;
+        margin-bottom: 28px;
+        color: #fff;
+    }
+}
+
+.upload__input {
+    width: 500px;
+    height: 25px;
+    padding: 0 10px;
+    margin-right: 8px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.upload__button {
+    width: 150px;
+    height: 25px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    font-size: 16px;
+    background-color: #fff;
+    &:hover {
+        background-color: rgb(71, 65, 65);
+        color: #fff;
+    }
+}
+
+.content__gallery {
+    display: flex;
+    padding: 10px;
+    font-size: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: row wrap;
+    justify-content: center;
+    div {
+        margin: 5px;
+        height: 237px;
+        img {
+            width: auto;
+            height: 100%;
+            border: 3px solid #fff;
+        }
+    }
+    &:hover {
+        img {
+            opacity: 0.3;
+            transition: .8 opacity;
+            &:hover {
+                opacity: 1;
+                transition: .8 opacity;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 560px;
+        margin: 0 auto;
+    }
+    .content__gallery{
+        div {
+            margin: 1px;
+            img {
+                width: auto;
+                height: 100%;
+                max-width: 550px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .content__gallery{
+        div {
+            margin: 1px;
+            height: 137px;
+            img {
+                width: auto;
+                height: 100%;
+                max-width: 310px;
+            }
+        }
+    }
+}
