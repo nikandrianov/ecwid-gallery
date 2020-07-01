@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
+import axios from 'axios';
+import FormImg from './component/FormImg';
 
 class App extends Component {
   constructor(props){
@@ -11,13 +13,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`gallery-images.json`)
-      .then(resp => resp.json())
-      .then(result => this.setState({data: result, isFetching: false }))
+    // fetch(`gallery-images.json`)
+    //   .then(resp => resp.json())
+    //   .then(result => this.setState({data: result, isFetching: false }))
+    axios.get(`http://localhost:3000/galleryImages`)
+      .then(resp => this.setState({data: resp.data, isFetching: false}))
   }
 
   showImg () {
-    return this.state.data.galleryImages.map( (item,index) => <div key={index}><img src={item.url} alt=""/></div>)
+    return this.state.data.map( (item,index) => <div key={index}><img src={item.url} alt=""/></div>)
   }
 
   render() {
@@ -26,15 +30,7 @@ class App extends Component {
     return (
         <div className="wrapper">
           <div className="container">
-            <div className="upload">
-              <div className="upload__content">
-                <h1>Галерея изображений</h1>
-                <form className="form-upload">
-                  <input className="upload__input" placeholder="URL-адрес картинки"/>
-                  <button className="upload__button">Загрузить</button>
-                </form>
-              </div>
-            </div>
+            <FormImg showImg={this.showImg(this.state.data)}/>
             <div className="content">
               <div className="content__gallery">
                 {this.showImg()}
