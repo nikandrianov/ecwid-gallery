@@ -11,5 +11,5 @@
 ### json-server gallery-images.json
 Запустится локальный RESTApi сервер
 
-### Запустить локальный сервер react
-## npm start
+## Запустить локальный сервер react
+### npm start
