@@ -9,13 +9,10 @@
     margin: 0 auto;
 }
 
-.upload {
+.upload__content {
     margin: 0 auto;
     height: 200px;
     width: 860px;
-}
-
-.upload__content {
     text-align: center;
     padding: 50px 0 0 0;
     h1 {
@@ -56,6 +53,7 @@
     flex-flow: row wrap;
     justify-content: center;
     div {
+        position: relative;
         margin: 5px;
         height: 237px;
         img {
@@ -76,37 +74,16 @@
     }
 }
 
-@media (max-width: 768px) {
-    .container {
-        max-width: 560px;
-        margin: 0 auto;
-    }
-    .content__gallery{
-        div {
-            margin: 1px;
-            img {
-                width: auto;
-                height: 100%;
-                max-width: 550px;
-            }
-        }
+.content__button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    font-weight: 700;
+    background-color: transparent;
+    &:hover {
+        color: #fff;
     }
 }
 
-@media (max-width: 600px) {
-    .container {
-        max-width: 320px;
-        margin: 0 auto;
-    }
-    .content__gallery{
-        div {
-            margin: 1px;
-            height: 137px;
-            img {
-                width: auto;
-                height: 100%;
-                max-width: 310px;
-            }
-        }
-    }
-}
+@import './css/media';
